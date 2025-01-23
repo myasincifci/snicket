@@ -89,3 +89,23 @@ Epoch 5: 100%|█| 55/55 [00:18<00:00,  3.05it/s, v_num=xb9x, train/loss_step=0.
 
 
 
+
+
+
+Epoch 6: 100%|█| 55/55 [00:18<00:00,  3.04it/s, v_num=xb9x, train/loss_step=0.436, train/acc_step=0.757, val/loss=0.960, val/acc=0.600, train/loss_epoch=0.456, train/acc_epoch=0.7
+
+
+
+
+
+
+
+
+
+
+Epoch 7: 100%|█| 55/55 [00:18<00:00,  3.05it/s, v_num=xb9x, train/loss_step=0.439, train/acc_step=0.785, val/loss=0.774, val/acc=0.619, train/loss_epoch=0.443, train/acc_epoch=0.7
+
+
+
+
+

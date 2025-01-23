@@ -540,3 +540,149 @@
 2025-01-23 18:54:44,530 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
 2025-01-23 18:54:45,339 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
 2025-01-23 18:54:45,530 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:46,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:46,925 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:54:47,103 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:54:47,104 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:54:47,104 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:54:47,105 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:54:47,340 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:47,340 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:54:47,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:48,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:49,341 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:49,455 DEBUG   SenderThread:214982 [sender.py:send():379] send: stats
+2025-01-23 18:54:49,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:50,202 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:54:50,203 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:54:50,203 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:54:50,204 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:54:50,341 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:54:50,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:51,345 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:51,531 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:52,530 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:54:52,532 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:53,345 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:53,532 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:54,192 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:54:54,193 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:54:54,193 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:54:54,194 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:54:54,346 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:54:54,502 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:54:54,503 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:54:54,504 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:54:54,505 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:54:54,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:55,346 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:55,347 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:54:55,514 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-23 18:54:55,514 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: stop_status
+2025-01-23 18:54:55,555 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:56,550 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:57,072 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:54:57,073 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:54:57,073 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:54:57,074 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:54:57,347 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:57,347 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:54:57,550 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:57,696 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:54:58,550 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:54:59,348 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:54:59,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:00,174 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:00,176 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:00,176 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:00,177 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:00,348 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:00,550 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:01,349 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:01,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:02,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:02,786 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:55:03,272 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:03,273 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:03,273 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:03,273 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:03,350 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:03,350 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:03,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:04,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:05,351 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:05,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:06,382 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:06,383 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:06,383 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:06,383 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:06,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:07,351 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:07,352 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:07,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:07,937 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:55:08,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:09,352 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:09,491 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:09,493 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:09,493 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:09,493 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:09,551 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:10,353 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:10,514 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-23 18:55:10,514 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: stop_status
+2025-01-23 18:55:10,552 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:11,353 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:11,552 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:12,540 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:12,541 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:12,542 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:12,542 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:12,634 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:13,354 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:13,355 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:13,405 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:55:13,565 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:14,565 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:15,124 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:15,126 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:15,126 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:15,127 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:15,355 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:15,356 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:15,450 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:15,452 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:15,453 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:15,453 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:15,565 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:16,355 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:16,571 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:17,356 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:17,565 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:18,433 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:55:18,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:19,357 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:19,466 DEBUG   SenderThread:214982 [sender.py:send():379] send: stats
+2025-01-23 18:55:19,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:19,725 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:19,726 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:19,726 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:19,727 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:20,357 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:20,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:21,358 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:21,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:22,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:22,763 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: partial_history
+2025-01-23 18:55:22,764 DEBUG   SenderThread:214982 [sender.py:send():379] send: history
+2025-01-23 18:55:22,764 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: summary_record
+2025-01-23 18:55:22,765 INFO    SenderThread:214982 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-23 18:55:23,358 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:23,359 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/wandb-summary.json
+2025-01-23 18:55:23,508 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: status_report
+2025-01-23 18:55:23,566 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:24,567 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-23 18:55:25,359 INFO    Thread-17 :214982 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/yasin/repos/snicket/wandb/run-20250123_185218-8gvbxb9x/files/output.log
+2025-01-23 18:55:25,514 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-23 18:55:25,515 DEBUG   SenderThread:214982 [sender.py:send_request():406] send_request: stop_status
+2025-01-23 18:55:25,567 DEBUG   HandlerThread:214982 [handler.py:handle_request():158] handle_request: internal_messages
