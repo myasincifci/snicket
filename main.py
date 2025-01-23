@@ -15,7 +15,8 @@ class DeepFakeDataModule(pl.LightningDataModule):
         self.transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.RandomHorizontalFlip(p=0.5),
-            transforms.RandomResizedCrop(256, scale=(0.5, 1.0)),
+            # transforms.RandomRotation(15),
+            # transforms.RandomResizedCrop(256, scale=(0.5, 1.0)),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
 
@@ -35,7 +36,7 @@ class DeepFakeDetector(pl.LightningModule):
         self.save_hyperparameters()
         
         # Use pretrained ResNet18
-        self.model = models.resnet18(pretrained=False)
+        self.model = models.resnet18(pretrained=True)
         self.model.fc = nn.Linear(self.model.fc.in_features, 1)
         
         # Initialize metrics and loss
@@ -51,7 +52,7 @@ class DeepFakeDetector(pl.LightningModule):
         y = y.float()
         logits = self(x)
         loss = self.loss_fn(logits, y)
-        self.train_acc(torch.sigmoid(logits), y)
+        self.train_acc(logits, y)
         self.log_dict({'train/loss': loss, 'train/acc': self.train_acc}, 
                      on_step=True, on_epoch=True, prog_bar=True)
         return loss
@@ -61,7 +62,7 @@ class DeepFakeDetector(pl.LightningModule):
         y = y.float()
         logits = self(x)
         loss = self.loss_fn(logits, y)
-        self.val_acc(torch.sigmoid(logits), y)
+        self.val_acc(logits, y)
         self.log_dict({'val/loss': loss, 'val/acc': self.val_acc}, 
                      on_epoch=True, prog_bar=True)
         return loss
@@ -77,11 +78,11 @@ if __name__ == '__main__':
 
     # Initialize data and model
     dm = DeepFakeDataModule(data_dir='data', batch_size=128)
-    model = DeepFakeDetector(learning_rate=3e-4)
+    model = DeepFakeDetector(learning_rate=1e-5)
 
     # Train the model
     trainer = pl.Trainer(
-        max_epochs=30,
+        max_epochs=40,
         accelerator='auto',
         devices='auto',
         log_every_n_steps=10,
