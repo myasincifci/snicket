@@ -1,0 +1,280 @@
+/home/yasin/miniforge3/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/yasin/miniforge3/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/yasin/miniforge3/lib/python3.10/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type              | Params
+------------------------------------------------
+0 | model     | ResNet            | 11.2 M
+1 | train_acc | BinaryAccuracy    | 0
+2 | val_acc   | BinaryAccuracy    | 0
+3 | loss_fn   | BCEWithLogitsLoss | 0
+------------------------------------------------
+11.2 M    Trainable params
+0         Non-trainable params
+11.2 M    Total params
+44.708    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                             | 0/110 [00:00<?, ?it/s]
+/home/yasin/miniforge3/lib/python3.10/site-packages/torch/autograd/graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:919.)
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████| 110/110 [00:18<00:00,  5.85it/s, v_num=ov53, train/loss_step=0.168, train/acc_step=0.930]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2: 100%|█| 110/110 [00:18<00:00,  5.81it/s, v_num=ov53, train/loss_step=0.0426, train/acc_step=1.000, val/loss=0.406, val/acc=0.846, train/loss_epoch=0.138, train/acc_epoch=
+
+
+
+
+
+
+
+
+
+
+Epoch 3: 100%|█| 110/110 [00:18<00:00,  5.80it/s, v_num=ov53, train/loss_step=0.058, train/acc_step=0.977, val/loss=0.402, val/acc=0.868, train/loss_epoch=0.0796, train/acc_epoch=
+
+
+
+
+
+
+
+
+
+
+Epoch 4: 100%|█| 110/110 [00:18<00:00,  5.80it/s, v_num=ov53, train/loss_step=0.0108, train/acc_step=1.000, val/loss=0.747, val/acc=0.794, train/loss_epoch=0.0633, train/acc_epoch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 6: 100%|█| 110/110 [00:19<00:00,  5.76it/s, v_num=ov53, train/loss_step=0.232, train/acc_step=0.953, val/loss=0.447, val/acc=0.873, train/loss_epoch=0.0556, train/acc_epoch=
+
+
+
+
+
+
+
+
+
+
+Epoch 7: 100%|█| 110/110 [00:18<00:00,  5.85it/s, v_num=ov53, train/loss_step=0.0817, train/acc_step=0.977, val/loss=0.268, val/acc=0.906, train/loss_epoch=0.0404, train/acc_epoch
+
+
+
+
+
+
+
+
+
+
+Epoch 8: 100%|█| 110/110 [00:19<00:00,  5.71it/s, v_num=ov53, train/loss_step=0.00764, train/acc_step=1.000, val/loss=0.598, val/acc=0.845, train/loss_epoch=0.0493, train/acc_epoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 10: 100%|█| 110/110 [00:19<00:00,  5.74it/s, v_num=ov53, train/loss_step=0.135, train/acc_step=0.953, val/loss=0.753, val/acc=0.821, train/loss_epoch=0.0269, train/acc_epoch
+
+
+
+
+
+
+
+
+
+
+Epoch 11: 100%|█| 110/110 [00:19<00:00,  5.68it/s, v_num=ov53, train/loss_step=0.00596, train/acc_step=1.000, val/loss=0.375, val/acc=0.875, train/loss_epoch=0.0435, train/acc_epo
+
+
+
+
+
+
+
+
+
+
+Epoch 12: 100%|█| 110/110 [00:19<00:00,  5.73it/s, v_num=ov53, train/loss_step=0.0437, train/acc_step=0.977, val/loss=0.329, val/acc=0.887, train/loss_epoch=0.0462, train/acc_epoc
+
+
+
+
+
+
+
+
+
+
+Epoch 13: 100%|█| 110/110 [00:19<00:00,  5.75it/s, v_num=ov53, train/loss_step=0.00552, train/acc_step=1.000, val/loss=0.261, val/acc=0.908, train/loss_epoch=0.0314, train/acc_epo
+
+
+
+
+
+
+
+
+
+
+Epoch 14: 100%|█| 110/110 [00:18<00:00,  5.79it/s, v_num=ov53, train/loss_step=0.00312, train/acc_step=1.000, val/loss=1.300, val/acc=0.746, train/loss_epoch=0.0234, train/acc_epo
+
+
+
+
+
+
+
+
+
+
+Epoch 15: 100%|█| 110/110 [00:19<00:00,  5.74it/s, v_num=ov53, train/loss_step=0.000753, train/acc_step=1.000, val/loss=0.333, val/acc=0.908, train/loss_epoch=0.0177, train/acc_ep
+
+
+
+
+
+
+
+
+
+
+Epoch 16: 100%|█| 110/110 [00:19<00:00,  5.71it/s, v_num=ov53, train/loss_step=0.116, train/acc_step=0.977, val/loss=0.286, val/acc=0.921, train/loss_epoch=0.00666, train/acc_epoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 18: 100%|█| 110/110 [00:19<00:00,  5.72it/s, v_num=ov53, train/loss_step=0.050, train/acc_step=0.977, val/loss=0.371, val/acc=0.902, train/loss_epoch=0.0374, train/acc_epoch
+
+
+
+
+
+
+
+
+
+
+Epoch 19: 100%|█| 110/110 [00:19<00:00,  5.75it/s, v_num=ov53, train/loss_step=0.0192, train/acc_step=1.000, val/loss=0.522, val/acc=0.866, train/loss_epoch=0.0225, train/acc_epoc
+
+
+
+
+
+
+
+
+
+
+Epoch 20: 100%|█| 110/110 [00:19<00:00,  5.74it/s, v_num=ov53, train/loss_step=0.0166, train/acc_step=1.000, val/loss=0.746, val/acc=0.829, train/loss_epoch=0.019, train/acc_epoch
+
+
+
+
+
+
+
+
+
+
+Epoch 21: 100%|█| 110/110 [00:19<00:00,  5.70it/s, v_num=ov53, train/loss_step=0.0465, train/acc_step=0.953, val/loss=0.405, val/acc=0.900, train/loss_epoch=0.0192, train/acc_epoc
+
+
+
+
+
+
+
+
+
+
+Epoch 22: 100%|█| 110/110 [00:19<00:00,  5.74it/s, v_num=ov53, train/loss_step=0.00151, train/acc_step=1.000, val/loss=0.394, val/acc=0.902, train/loss_epoch=0.016, train/acc_epoc
+
+
+
+
+
+
+
+
+

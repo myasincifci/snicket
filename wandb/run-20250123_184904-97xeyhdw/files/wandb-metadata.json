@@ -1,0 +1,128 @@
+{
+    "os": "Linux-6.8.0-31-generic-x86_64-with-glibc2.39",
+    "python": "3.10.14",
+    "heartbeatAt": "2025-01-23T17:49:05.157262",
+    "startedAt": "2025-01-23T17:49:04.572757",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/yasin/repos/snicket/main.py",
+    "codePathLocal": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": null,
+        "commit": null
+    },
+    "email": "myasincifci@gmail.com",
+    "root": "/home/yasin/repos/snicket",
+    "host": "yasin-MS-7B86",
+    "username": "yasin",
+    "executable": "/home/yasin/miniforge3/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3732.6295625,
+        "min": 2200.0,
+        "max": 3600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4009.81,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4028.804,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4023.743,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2577.067,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4024.856,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3998.37,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4024.982,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4024.86,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4023.948,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4024.167,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4015.03,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2685.01,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4024.869,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4022.66,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3962.258,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 4023.703,
+            "min": 2200.0,
+            "max": 3600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 227.136474609375,
+            "used": 211.50858306884766
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2070 SUPER",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2070 SUPER",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.558216094970703
+    }
+}
