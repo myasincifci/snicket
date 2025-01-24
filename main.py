@@ -1,11 +1,14 @@
 import torch
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
+from pytorch_lightning.callbacks import Callback
 from torch import nn
 from torchmetrics import Accuracy
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 import wandb
+
+
 
 class DeepFakeDataModule(pl.LightningDataModule):
     def __init__(self, data_dir='dataset', batch_size=32):
@@ -15,7 +18,8 @@ class DeepFakeDataModule(pl.LightningDataModule):
         self.transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.RandomHorizontalFlip(p=0.5),
-            transforms.RandomResizedCrop(256, scale=(0.5, 1.0)),
+            # transforms.RandomRotation(15),
+            # transforms.RandomResizedCrop(256, scale=(0.5, 1.0)),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
 
@@ -35,8 +39,12 @@ class DeepFakeDetector(pl.LightningModule):
         self.save_hyperparameters()
         
         # Use pretrained ResNet18
-        self.model = models.resnet18(pretrained=False)
-        self.model.fc = nn.Linear(self.model.fc.in_features, 1)
+        self.model = models.resnet18(pretrained=True)
+        self.model.fc = nn.Sequential(
+            nn.Dropout(p=0.8),
+            nn.Linear(self.model.fc.in_features, 1)
+              # Add dropout with a % value
+        )
         
         # Initialize metrics and loss
         self.train_acc = Accuracy(task='binary')
@@ -51,7 +59,7 @@ class DeepFakeDetector(pl.LightningModule):
         y = y.float()
         logits = self(x)
         loss = self.loss_fn(logits, y)
-        self.train_acc(torch.sigmoid(logits), y)
+        self.train_acc(logits, y)
         self.log_dict({'train/loss': loss, 'train/acc': self.train_acc}, 
                      on_step=True, on_epoch=True, prog_bar=True)
         return loss
@@ -61,13 +69,24 @@ class DeepFakeDetector(pl.LightningModule):
         y = y.float()
         logits = self(x)
         loss = self.loss_fn(logits, y)
-        self.val_acc(torch.sigmoid(logits), y)
+        self.val_acc(logits, y)
         self.log_dict({'val/loss': loss, 'val/acc': self.val_acc}, 
                      on_epoch=True, prog_bar=True)
         return loss
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
+class SaveModelCallback(Callback):
+    def __init__(self):
+        super().__init__()
+        self.best_score = 0  
+
+    def on_validation_epoch_end(self, trainer, pl_module):
+        current_score = trainer.callback_metrics["val/acc"].item()
+        if current_score < self.best_score:
+            self.best_score = current_score
+            torch.save(model.state_dict(), "deepfake_detector_best.pth")
+            print(f"\nNew best model saved at epoch {trainer.current_epoch + 1} with val/acc: {current_score: f}")
 
 if __name__ == '__main__':
     wandb.init(
@@ -76,17 +95,18 @@ if __name__ == '__main__':
     logger = WandbLogger()
 
     # Initialize data and model
-    dm = DeepFakeDataModule(data_dir='data', batch_size=128)
-    model = DeepFakeDetector(learning_rate=3e-4)
+    dm = DeepFakeDataModule(data_dir='dataset', batch_size=128)
+    model = DeepFakeDetector(learning_rate=1e-5)
 
-    # Train the model
+    save_model_callback = SaveModelCallback()
     trainer = pl.Trainer(
-        max_epochs=30,
+        max_epochs=60,
         accelerator='auto',
         devices='auto',
         log_every_n_steps=10,
         deterministic=True,
-        logger=logger
+        logger=logger,
+        callbacks=[save_model_callback]
     )
     
     trainer.fit(model, datamodule=dm)
