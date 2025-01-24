@@ -83,7 +83,7 @@ class SaveModelCallback(Callback):
 
     def on_validation_epoch_end(self, trainer, pl_module):
         current_score = trainer.callback_metrics["val/acc"].item()
-        if current_score < self.best_score:
+        if current_score > self.best_score:
             self.best_score = current_score
             torch.save(model.state_dict(), "deepfake_detector_best.pth")
             print(f"\nNew best model saved at epoch {trainer.current_epoch + 1} with val/acc: {current_score: f}")
