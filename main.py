@@ -6,6 +6,7 @@ from torchmetrics import Accuracy
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 import wandb
+from pytorch_lightning.callbacks import Callback
 
 class DeepFakeDataModule(pl.LightningDataModule):
     def __init__(self, data_dir='dataset', batch_size=32):
@@ -76,6 +77,24 @@ class DeepFakeDetector(pl.LightningModule):
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate, weight_decay=0.2)
+    
+class SaveModelCallback(Callback):
+    def __init__(self):
+        super().__init__()
+        self.best_score = 0.0  # Initialize best score to zero
+
+    def on_validation_epoch_end(self, trainer, pl_module):
+        # Get the current validation accuracy
+        if(trainer.current_epoch > 5):
+            current_score = trainer.callback_metrics["val/acc"].item()
+
+            # Save the model if validation accuracy improves
+            if current_score > self.best_score:
+                self.best_score = current_score
+                best_model_path = "deepfake_detector_best_moe.pth"
+                torch.save(pl_module.model.state_dict(), best_model_path)
+                print(f"New best model saved at epoch {trainer.current_epoch + 1} with val/acc: {current_score:.4f}")
+
 
 if __name__ == '__main__':
     wandb.init(
@@ -86,7 +105,7 @@ if __name__ == '__main__':
     # Initialize data and model
     dm = DeepFakeDataModule(data_dir='data', batch_size=64)
     model = DeepFakeDetector(learning_rate=1e-5)
-
+    save_model_callback = SaveModelCallback()
     # Train the model
     trainer = pl.Trainer(
         max_epochs=50,
@@ -95,6 +114,7 @@ if __name__ == '__main__':
         log_every_n_steps=10,
         deterministic=True,
         logger=logger
+        callbacks=[save_model_callback]
     )
     
     trainer.fit(model, datamodule=dm)
