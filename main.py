@@ -7,6 +7,12 @@ from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 import wandb
 
+from torch.optim.lr_scheduler import LinearLR, CosineAnnealingLR, SequentialLR, StepLR
+from pytorch_lightning.callbacks import LearningRateMonitor
+from pytorch_lightning.callbacks import ModelCheckpoint
+
+steps = 20_000
+
 class DeepFakeDataModule(pl.LightningDataModule):
     def __init__(self, data_dir='dataset', batch_size=32):
         super().__init__()
@@ -60,7 +66,7 @@ class DeepFakeDetector(pl.LightningModule):
         logits = self(x)
         loss = self.loss_fn(logits, y)
         self.train_acc(logits, y)
-        self.log_dict({'train/loss': loss, 'train/acc': self.train_acc}, 
+        self.log_dict({'train_loss': loss, 'train_acc': self.train_acc}, 
                      on_step=True, on_epoch=True, prog_bar=True)
         return loss
 
@@ -70,12 +76,21 @@ class DeepFakeDetector(pl.LightningModule):
         logits = self(x)
         loss = self.loss_fn(logits, y)
         self.val_acc(logits, y)
-        self.log_dict({'val/loss': loss, 'val/acc': self.val_acc}, 
+        self.log_dict({'val_loss': loss, 'val_acc': self.val_acc}, 
                      on_epoch=True, prog_bar=True)
         return loss
 
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate, weight_decay=0.2)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate, weight_decay=0.01)
+        scheduler = {
+            'scheduler': StepLR(optimizer, step_size=3, gamma=0.5), #0.1),  # Example: StepLR
+            'interval': 'epoch',  # 'epoch' or 'step'
+            'frequency': 1,       # How often to apply the scheduler
+            'reduce_on_plateau': False,  # For ReduceLROnPlateau
+            'monitor': 'val_loss',  # Metric to monitor for ReduceLROnPlateau
+        }
+
+        return [optimizer], [scheduler]
 
 if __name__ == '__main__':
     wandb.init(
@@ -85,16 +100,28 @@ if __name__ == '__main__':
 
     # Initialize data and model
     dm = DeepFakeDataModule(data_dir='data', batch_size=64)
-    model = DeepFakeDetector(learning_rate=1e-5)
+    model = DeepFakeDetector(learning_rate=1e-4)
+
+    lr_monitor = LearningRateMonitor(logging_interval='step')
+
+    checkpoint_callback = ModelCheckpoint(
+        dirpath="checkpoints/",          # Directory to save checkpoints
+        filename="best-model-{epoch:02d}-{val_loss:.2f}",  # Checkpoint file name
+        monitor="val_loss",              # Metric to monitor
+        mode="min",                      # Minimize the monitored metric
+        save_top_k=1,                    # Save only the best model
+        save_last=True,                  # Optionally save the last checkpoint
+    )
 
     # Train the model
     trainer = pl.Trainer(
-        max_epochs=50,
         accelerator='auto',
         devices='auto',
         log_every_n_steps=10,
         deterministic=True,
-        logger=logger
+        logger=logger,
+        max_steps=steps,
+        callbacks=[lr_monitor]
     )
     
     trainer.fit(model, datamodule=dm)
