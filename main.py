@@ -36,8 +36,12 @@ class DeepFakeDetector(pl.LightningModule):
         self.save_hyperparameters()
         
         # Use pretrained ResNet18
-        self.model = models.resnet18(pretrained=True)
-        self.model.fc = nn.Linear(self.model.fc.in_features, 1)
+        # self.model = models.resnet18(pretrained=True)
+        self.model = models.resnet34(pretrained=True)
+        self.dropout = nn.Dropout(p=0.5)
+        self.fc = nn.Linear(self.model.fc.in_features, 1)
+        self.model.fc = nn.Identity()
+
         
         # Initialize metrics and loss
         self.train_acc = Accuracy(task='binary')
@@ -45,7 +49,10 @@ class DeepFakeDetector(pl.LightningModule):
         self.loss_fn = nn.BCEWithLogitsLoss()
 
     def forward(self, x):
-        return self.model(x).squeeze(1)
+        x = self.model(x)
+        x = self.dropout(x)
+        x = self.fc(x)
+        return x.squeeze(1)
 
     def training_step(self, batch, batch_idx):
         x, y = batch
@@ -68,7 +75,7 @@ class DeepFakeDetector(pl.LightningModule):
         return loss
 
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
+        return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate, weight_decay=0.2)
 
 if __name__ == '__main__':
     wandb.init(
@@ -77,12 +84,12 @@ if __name__ == '__main__':
     logger = WandbLogger()
 
     # Initialize data and model
-    dm = DeepFakeDataModule(data_dir='data', batch_size=128)
+    dm = DeepFakeDataModule(data_dir='data', batch_size=64)
     model = DeepFakeDetector(learning_rate=1e-5)
 
     # Train the model
     trainer = pl.Trainer(
-        max_epochs=40,
+        max_epochs=50,
         accelerator='auto',
         devices='auto',
         log_every_n_steps=10,
