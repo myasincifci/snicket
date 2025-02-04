@@ -113,7 +113,7 @@ if __name__ == '__main__':
         devices='auto',
         log_every_n_steps=10,
         deterministic=True,
-        logger=logger
+        logger=logger,
         callbacks=[save_model_callback]
     )
     
