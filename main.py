@@ -12,7 +12,7 @@ from torch.optim.lr_scheduler import LinearLR, CosineAnnealingLR, SequentialLR, 
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.callbacks import ModelCheckpoint
 
-steps = 20_000
+steps = 100_000
 
 class DeepFakeDataModule(pl.LightningDataModule):
     def __init__(self, data_dir='dataset', batch_size=32):
@@ -22,14 +22,20 @@ class DeepFakeDataModule(pl.LightningDataModule):
         self.transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.RandomHorizontalFlip(p=0.5),
-            # transforms.RandomRotation(15),
+            transforms.RandomGrayscale(p=0.1),
+            transforms.RandomRotation(30),
             # transforms.RandomResizedCrop(256, scale=(0.5, 1.0)),
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ])
+
+        self.val_transform = transforms.Compose([
+            transforms.ToTensor(),
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
         ])
 
     def setup(self, stage=None):
         self.train_ds = datasets.ImageFolder(self.data_dir + '/train', transform=self.transform)
-        self.val_ds = datasets.ImageFolder(self.data_dir + '/val', transform=self.transform)
+        self.val_ds = datasets.ImageFolder(self.data_dir + '/val', transform=self.val_transform)
 
     def train_dataloader(self):
         return DataLoader(self.train_ds, batch_size=self.batch_size, shuffle=True, num_workers=4)
@@ -44,10 +50,12 @@ class DeepFakeDetector(pl.LightningModule):
         
         # Use pretrained ResNet18
         # self.model = models.resnet18(pretrained=True)
-        self.model = models.resnet34(pretrained=True)
+        # self.model = models.resnet34(pretrained=True)
+        self.model = models.densenet121(pretrained=True)
+        # self.model = models.inception_v3(pretrained=True)
         self.dropout = nn.Dropout(p=0.5)
-        self.fc = nn.Linear(self.model.fc.in_features, 1)
-        self.model.fc = nn.Identity()
+        self.classifier = nn.Linear(self.model.classifier.in_features, 1)
+        self.model.classifier = nn.Identity()
 
         
         # Initialize metrics and loss
@@ -58,7 +66,7 @@ class DeepFakeDetector(pl.LightningModule):
     def forward(self, x):
         x = self.model(x)
         x = self.dropout(x)
-        x = self.fc(x)
+        x = self.classifier(x)
         return x.squeeze(1)
 
     def training_step(self, batch, batch_idx):
@@ -84,7 +92,7 @@ class DeepFakeDetector(pl.LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate, weight_decay=0.01)
         scheduler = {
-            'scheduler': StepLR(optimizer, step_size=3, gamma=0.5), #0.1),  # Example: StepLR
+            'scheduler': StepLR(optimizer, step_size=2, gamma=0.6), #0.1),  # Example: StepLR
             'interval': 'epoch',  # 'epoch' or 'step'
             'frequency': 1,       # How often to apply the scheduler
             'reduce_on_plateau': False,  # For ReduceLROnPlateau
@@ -100,17 +108,17 @@ if __name__ == '__main__':
     logger = WandbLogger()
 
     # Initialize data and model
-    dm = DeepFakeDataModule(data_dir='data', batch_size=64)
-    model = DeepFakeDetector(learning_rate=1e-4)
+    dm = DeepFakeDataModule(data_dir='data', batch_size=16)
+    model = DeepFakeDetector(learning_rate=3e-4)
 
     lr_monitor = LearningRateMonitor(logging_interval='step')
 
     checkpoint_callback = ModelCheckpoint(
         dirpath="checkpoints/",          # Directory to save checkpoints
-        filename="best-model-{epoch:02d}-{val_loss:.2f}",  # Checkpoint file name
-        monitor="val_loss",              # Metric to monitor
-        mode="min",                      # Minimize the monitored metric
-        save_top_k=1,                    # Save only the best model
+        filename="best-model-{epoch:02d}-{val_acc:.3f}",  # Checkpoint file name
+        monitor="val_acc",              # Metric to monitor
+        mode="max",                      # Minimize the monitored metric
+        save_top_k=3,                    # Save only the best model
         save_last=True,                  # Optionally save the last checkpoint
     )
 
@@ -122,7 +130,8 @@ if __name__ == '__main__':
         deterministic=True,
         logger=logger,
         max_steps=steps,
-        callbacks=[lr_monitor]
+        callbacks=[lr_monitor, checkpoint_callback],
+        accumulate_grad_batches=4
     )
     
     trainer.fit(model, datamodule=dm)
