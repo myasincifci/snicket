@@ -6,6 +6,7 @@ from torchmetrics import Accuracy
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 import wandb
+from pytorch_lightning.callbacks import Callback
 
 from torch.optim.lr_scheduler import LinearLR, CosineAnnealingLR, SequentialLR, StepLR
 from pytorch_lightning.callbacks import LearningRateMonitor
